@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Uh1-jq-0tp">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tony's Text Recognizer-->
+        <scene sceneID="vax-Rb-pN5">
+            <objects>
+                <viewController id="Szr-Kk-nUW" customClass="ViewController" customModule="SwiftOpenCV" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w4M-Ym-pS4"/>
+                        <viewControllerLayoutGuide type="bottom" id="QuU-zQ-Wfg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6nI-lq-Vsp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PlG-0a-Z3o">
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Recognize">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="kRr-W4-zwH" kind="show" identifier="ShowRecognition" id="D1Z-O8-ouo"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9yg-b5-PsS">
+                                <rect key="frame" x="0.0" y="64" width="320" height="476"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pcD-TI-ahy">
+                                <rect key="frame" x="0.0" y="538" width="320" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Recognize">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onRecognizeTapped:" destination="Szr-Kk-nUW" eventType="touchUpInside" id="pnn-HK-5Lx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="9yg-b5-PsS" firstAttribute="leading" secondItem="6nI-lq-Vsp" secondAttribute="leading" id="523-Sb-7PL"/>
+                            <constraint firstItem="pcD-TI-ahy" firstAttribute="leading" secondItem="6nI-lq-Vsp" secondAttribute="leading" id="E3k-Av-Y2x"/>
+                            <constraint firstAttribute="trailing" secondItem="pcD-TI-ahy" secondAttribute="trailing" id="Et9-PE-jRT"/>
+                            <constraint firstItem="9yg-b5-PsS" firstAttribute="top" secondItem="w4M-Ym-pS4" secondAttribute="bottom" id="KEo-cr-tIl"/>
+                            <constraint firstItem="QuU-zQ-Wfg" firstAttribute="top" secondItem="9yg-b5-PsS" secondAttribute="bottom" constant="28" id="KJs-zl-Y7R"/>
+                            <constraint firstItem="QuU-zQ-Wfg" firstAttribute="top" secondItem="pcD-TI-ahy" secondAttribute="bottom" id="SsR-sm-thH"/>
+                            <constraint firstAttribute="trailing" secondItem="9yg-b5-PsS" secondAttribute="trailing" id="fvc-4v-BK1"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="PlG-0a-Z3o"/>
+                                <exclude reference="9yg-b5-PsS"/>
+                                <exclude reference="pcD-TI-ahy"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <include reference="PlG-0a-Z3o"/>
+                                <include reference="9yg-b5-PsS"/>
+                                <include reference="pcD-TI-ahy"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Tony's Text Recognizer" id="msA-Az-piq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="342-pe-qSf">
+                            <connections>
+                                <action selector="onTakePictureTapped:" destination="Szr-Kk-nUW" id="66V-Ev-CzQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="9yg-b5-PsS" id="0UB-iP-QGn"/>
+                        <outlet property="uiview" destination="6nI-lq-Vsp" id="GNv-CH-XZh"/>
+                        <outlet property="view" destination="6nI-lq-Vsp" id="aFG-O1-xjG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RVL-if-d0A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1408.125" y="272.53521126760563"/>
+        </scene>
+        <!--Tony's Text-->
+        <scene sceneID="pmj-rF-xKj">
+            <objects>
+                <viewController id="kRr-W4-zwH" customClass="DetailViewController" customModule="SwiftOpenCV" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="smq-Qe-H7L"/>
+                        <viewControllerLayoutGuide type="bottom" id="oYr-jl-9iI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="acT-eH-QfW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Br1-wr-mrT">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Br1-wr-mrT" secondAttribute="trailing" id="7NU-Fu-RLJ"/>
+                            <constraint firstItem="oYr-jl-9iI" firstAttribute="top" secondItem="Br1-wr-mrT" secondAttribute="bottom" id="BBa-Kr-qkr"/>
+                            <constraint firstItem="Br1-wr-mrT" firstAttribute="leading" secondItem="acT-eH-QfW" secondAttribute="leading" id="Mop-XN-AcC"/>
+                            <constraint firstItem="Br1-wr-mrT" firstAttribute="top" secondItem="smq-Qe-H7L" secondAttribute="bottom" id="avE-Jh-C36"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Br1-wr-mrT"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <include reference="Br1-wr-mrT"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Tony's Text" id="xGA-El-x9T">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="D2a-4t-rkG">
+                            <connections>
+                                <action selector="onTakePictureTapped:" destination="Szr-Kk-nUW" id="tj5-Vo-ZK8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="recTextView" destination="Br1-wr-mrT" id="b5t-1o-kdk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MHg-ja-cnh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2462" y="273"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XMA-aI-3eO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Uh1-jq-0tp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uXl-7O-50Q">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Szr-Kk-nUW" kind="relationship" relationship="rootViewController" id="JCX-3i-9oE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WEH-EK-tQq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="597" y="273"/>
+        </scene>
+    </scenes>
+</document>
